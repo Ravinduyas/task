@@ -25,16 +25,28 @@
     </section>
 </section>
 
-
 <script>
-
     const txtInput = document.getElementById('txt');
     const urlInput = document.getElementById('url');
+    const imgContainer = document.getElementById('img');
 
-
-    txtInput.addEventListener('input', function () {
-
+    txtInput.addEventListener('keyup', function () {
         urlInput.value = txtInput.value;
+    });
+
+    document.getElementById('btn2').addEventListener('click', function () {
+        const imageUrl = urlInput.value;
+        if (imageUrl) {
+            
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.style.maxWidth = '100%';
+            imgContainer.innerHTML = '';
+            imgContainer.appendChild(imgElement);
+        } else {
+            
+            imgContainer.innerHTML = '';
+        }
     });
 </script>
 
