@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task Two</title>
-    <link rel="stylesheet" href="asets/css/bootstrap.css">
+    <title>DOM Manipulation with JQuery</title>
+    <link rel="stylesheet" href="asets/css/bootstrap.min.css">
     <style>
         #con{
             width: 200px;
@@ -12,90 +12,129 @@
     </style>
 </head>
 <body>
-<section class="container mt-5">
-    <h1 id="main">Traversing Methods in Jquery</h1>
-    <section class="row">
-        <div class="col-3">
-            <input id="input" class="form-control" type="text" placeholder="input">
-            <button id="btn" class="btn btn-danger mt-2">Test</button>
 
-        </div>
-        <div class="col-5">
-            <ol class="list-group" id="task">
 
-            </ol>
-        </div>
-        <div class="col">
-            <div id="con" class="shadow">
-                <img src="sss" class="w-100 h-100" alt="">
-            </div>
+<section id="customer-page">
+    <section id="customer-title" class="d-flex mt-5 mb-4 justify-content-center">
+        <div class="rounded-pill w-75 bg-primary">
+            <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-users mx-2"></i>Manage Customers</h4>
         </div>
     </section>
-    <section class="row mt-5">
-        <div class="col-12">
-            <ul id="ul" class="list-group">
-                <li>append()</li>
-                <li>prepend()</li>
-                <li>remove()</li>
-                <li>text()</li>
-                <li>val()</li>
-                <li>click()</li>
-                <li>attr()</li>
-                <li>css</li>
-            </ul>
-        </div>
+    <section id="customer-content" class="container-fluid py-4 rounded-4">
+        <section class="d-flex justify-content-around flex-wrap-reverse">
+            <section id="left-content" class="col-12 col-sm-8 my-2">
+                <section id="customer-search" class="mb-5">
+                    <form class="row gx-3 gy-2 align-items-center">
+                        <div class="col-sm-3">
+                            <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+                            <select class="form-select" id="specificSizeSelect">
+                                <option value="1">ID</option>
+                                <option value="2">Name</option>
+                            </select>
+                        </div>
+                        <div class="w-50 col-sm-3">
+                            <label class="visually-hidden" for="specificSizeInputName">Name</label>
+                            <input type="text" class="form-control" id="specificSizeInputName" placeholder="Search customer">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-primary">Search</button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-warning">Clear</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!--                    table-->
+                <section id="customer-table" class="p-2 rounded-4 bg-light">
+                    <table id="tableCustomer" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="bg-primary text-white">ID</th>
+                            <th scope="col" class="bg-primary text-white">Name</th>
+                            <th scope="col" class="bg-primary text-white">Address</th>
+                            <th scope="col" class="bg-primary text-white">Salary</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody" class="table-group-divider">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Galle</td>
+                            <td>20 000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>25 000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>Nornton</td>
+                            <td>30 000</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+            </section>
+            <section id="right-content" class="d-flex col-8 col-sm-4 col-md-3 justify-content-end rounded-4">
+                <section class="col-8 p-2 bg-light rounded-4 w-100">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputCustID" placeholder="name@example.com">
+                        <label for="floatingInputCustID">Customer ID</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputCustName" placeholder="name@example.com">
+                        <label for="floatingInputCustName">Customer Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInputCustAddress" placeholder="name@example.com">
+                        <label for="floatingInputCustAddress">Address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInputCustSalary" placeholder="name@example.com">
+                        <label for="floatingInputCustSalary">Salary</label>
+                    </div>
+                    <section class="d-flex flex-wrap justify-content-center gap-2">
+                        <button id="btnCustomerSave" type="button" class="btn btn-outline-success">Save</button>
+                        <button id="btnCustomerUpdate" type="button" class="btn btn-outline-primary">update</button>
+                        <button id="btnCustomerDelete" type="button" class="btn btn-outline-danger">Delete</button>
+                    </section>
+                </section>
+            </section>
+        </section>
     </section>
 </section>
 
 
-<script src="asets/js/code.jquery.com_jquery-3.7.1.min.js"></script>
+<script src="asets/js/jquery-3.7.1.min.js"></script>
 <script>
 
-    $('#main').css({
-        "color": 'red',
-        "font-size":'40px'
+
+
+    $('#btnCustomerSave').click(function () {
+        var customer= {
+            id: $('#floatingInputCustID').val(),
+            name: $('#floatingInputCustName').val(),
+            address: $('#floatingInputCustAddress').val(),
+            salary: $('#floatingInputCustSalary').val()
+        }
+
+
+        let row= `<tr>
+                <th>${customer.id}</th>
+                <td>${customer.name}</td>
+                <td>${customer.address}</td>
+                <td>${customer.salary}</td>
+            </tr>`;
+
+        $('#tbody').append(row)
     });
-
-
-   
-    $('h1').text(); 
-
-
-    $('h1').text("jQuery is Awesome.! :-D");
-
-    $('input').val(); // val() method will input field typed value
-
-
-    $('input').val('1000');
-
-
-  
-
-
-    
-    $('#task').append('<li class="list-group-item">B</li>');
-    $('#task').prepend('<li class="list-group-item">A</li>');
-
-
-
-    //how to access attributes.?
-    $('img').attr('src');
-    $('img').attr('src','');
-
-
-
-
-
-    $("#btn").click(function(){
-        let val = $('#input').val();
-        $('#task').append('<li class="list-group-item">'+val+'</li>');
-        $('img').attr('src',val);
-    });
-
-
 
 
 </script>
 </body>
-
 </html>
