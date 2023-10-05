@@ -1,140 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>DOM Manipulation with JQuery</title>
-    <link rel="stylesheet" href="asets/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.css">
+
     <style>
-        #con{
-            width: 200px;
+        .mans {
+            position: absolute;
+            display: flex;
+            width: 70%;
             height: 200px;
+            top: 0%;
+            bottom: 0%;
+            left: 0%;
+            margin: auto;            
         }
+
+        .mans>div {
+            position: relative;
+            border:2px solid aqua;
+            width: calc(100%/6);
+            background: url("assets/gif.gif");
+            background-repeat: no-repeat;
+            background-color: aqua;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .mans>div>h1{
+            position: absolute;
+            height: fit-content;
+            top: 0%;
+            right: 0%;
+            bottom: 0%;
+            margin: auto;
+        }
+
+        .home{
+            position: absolute;
+            top: 21%;
+            height: 40%;
+            width: 25%;
+            right: 0%;
+            background: url("assets/house.gif");
+            background-repeat: no-repeat;
+            background-color: aqua;
+            background-size: cover;
+        }
+
+        section:nth-child(3){
+            position: absolute;
+            left: 0%;
+            top: 70%;
+            right: 0%;
+            margin: auto;
+            width: fit-content;
+        }
+        
     </style>
 </head>
+
 <body>
-
-
-<section id="customer-page">
-    <section id="customer-title" class="d-flex mt-5 mb-4 justify-content-center">
-        <div class="rounded-pill w-75 bg-primary">
-            <h4 class="fw-normal ps-3 mb-0 py-2 text-white"><i class="fa-solid fa-users mx-2"></i>Manage Customers</h4>
+    <div class="mans">
+        <div>
+            <h1>A</h1>
         </div>
+
+        <div>
+            <h1>B</h1>
+        </div>
+
+        <div>
+            <h1>C</h1>
+        </div>
+
+        <div>
+            <h1>D</h1>
+        </div>
+
+        <div>
+            <h1>E</h1>
+        </div>
+
+        <div>
+            <h1>F</h1>
+        </div>
+
+    </div>
+
+    <section class="home"></section>
+
+    <section>
+        <button id="startbtn" type="button" class="btn btn-primary">Start</button>
+        <button id="stopbtn" type="button" class="btn btn-danger">Stop</button>
     </section>
-    <section id="customer-content" class="container-fluid py-4 rounded-4">
-        <section class="d-flex justify-content-around flex-wrap-reverse">
-            <section id="left-content" class="col-12 col-sm-8 my-2">
-                <section id="customer-search" class="mb-5">
-                    <form class="row gx-3 gy-2 align-items-center">
-                        <div class="col-sm-3">
-                            <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                            <select class="form-select" id="specificSizeSelect">
-                                <option value="1">ID</option>
-                                <option value="2">Name</option>
-                            </select>
-                        </div>
-                        <div class="w-50 col-sm-3">
-                            <label class="visually-hidden" for="specificSizeInputName">Name</label>
-                            <input type="text" class="form-control" id="specificSizeInputName" placeholder="Search customer">
-                        </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-outline-primary">Search</button>
-                        </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-outline-warning">Clear</button>
-                        </div>
-                    </form>
-                </section>
 
-                <!--                    table-->
-                <section id="customer-table" class="p-2 rounded-4 bg-light">
-                    <table id="tableCustomer" class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col" class="bg-primary text-white">ID</th>
-                            <th scope="col" class="bg-primary text-white">Name</th>
-                            <th scope="col" class="bg-primary text-white">Address</th>
-                            <th scope="col" class="bg-primary text-white">Salary</th>
-                        </tr>
-                        </thead>
-                        <tbody id="tbody" class="table-group-divider">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Galle</td>
-                            <td>20 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>25 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>Nornton</td>
-                            <td>30 000</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-            </section>
-            <section id="right-content" class="d-flex col-8 col-sm-4 col-md-3 justify-content-end rounded-4">
-                <section class="col-8 p-2 bg-light rounded-4 w-100">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputCustID" placeholder="name@example.com">
-                        <label for="floatingInputCustID">Customer ID</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputCustName" placeholder="name@example.com">
-                        <label for="floatingInputCustName">Customer Name</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputCustAddress" placeholder="name@example.com">
-                        <label for="floatingInputCustAddress">Address</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="floatingInputCustSalary" placeholder="name@example.com">
-                        <label for="floatingInputCustSalary">Salary</label>
-                    </div>
-                    <section class="d-flex flex-wrap justify-content-center gap-2">
-                        <button id="btnCustomerSave" type="button" class="btn btn-outline-success">Save</button>
-                        <button id="btnCustomerUpdate" type="button" class="btn btn-outline-primary">update</button>
-                        <button id="btnCustomerDelete" type="button" class="btn btn-outline-danger">Delete</button>
-                    </section>
-                </section>
-            </section>
-        </section>
-    </section>
-</section>
-
-
-<script src="asets/js/jquery-3.7.1.min.js"></script>
-<script>
-
-
-
-    $('#btnCustomerSave').click(function () {
-        var customer= {
-            id: $('#floatingInputCustID').val(),
-            name: $('#floatingInputCustName').val(),
-            address: $('#floatingInputCustAddress').val(),
-            salary: $('#floatingInputCustSalary').val()
-        }
-
-
-        let row= `<tr>
-                <th>${customer.id}</th>
-                <td>${customer.name}</td>
-                <td>${customer.address}</td>
-                <td>${customer.salary}</td>
-            </tr>`;
-
-        $('#tbody').append(row)
-    });
-
-
-</script>
+   
 </body>
+
+<script>
+    // Variables to keep track of the animation state
+    let animationInterval;
+    let isAnimating = false;
+
+    // Function to move the last child to the first position
+    function moveLastToFirst() {
+        const mansDiv = document.querySelector('.mans');
+        const lastChild = mansDiv.lastElementChild;
+        mansDiv.removeChild(lastChild);
+        mansDiv.insertBefore(lastChild, mansDiv.firstElementChild);
+    }
+
+    // Function to start the animation
+    function startAnimation() {
+        if (!isAnimating) {
+            animationInterval = setInterval(moveLastToFirst, 1000); // Change the interval as needed
+            isAnimating = true;
+        }
+    }
+
+    // Function to stop the animation
+    function stopAnimation() {
+        if (isAnimating) {
+            clearInterval(animationInterval);
+            isAnimating = false;
+        }
+    }
+
+    // Event listener for the "Start" button
+    document.getElementById('startbtn').addEventListener('click', startAnimation);
+
+    // Event listener for the "Stop" button
+    document.getElementById('stopbtn').addEventListener('click', stopAnimation);
+</script>
+
 </html>
